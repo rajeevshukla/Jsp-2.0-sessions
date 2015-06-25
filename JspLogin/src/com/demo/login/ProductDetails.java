@@ -13,7 +13,8 @@ public class ProductDetails {
 		 this.productName=name;
 		 this.quantity=quantity;
 		 this.price=price;
-	
+	   
+		 
 	}
 
 	public int getProductId() {
