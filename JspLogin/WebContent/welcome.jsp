@@ -37,7 +37,13 @@
 	<div id="header" style="width: 100%; height: 100px;">
 		<div align="left" style="float: left; width: 50%;">
 			Welcome
-			<%=session.getAttribute("userName")%>
+			${userName}  <!-- El engine will search this attribute in all 4 scope one by one. 
+			               1:-pageScope
+			               
+			
+			         -->
+			
+			             
 			!!
 
 			<%
