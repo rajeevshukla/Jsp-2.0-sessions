@@ -49,7 +49,7 @@
 				<%
 					if (null != cartInfo) {
 				%>
-				Cart(  <a href="ViewCartDetails.htm"> <%=cartInfo.size()%></a>)
+				Cart(  <a href="viewCartDetails.htm"> <%=cartInfo.size()%></a>)
 
 				<%
 					} else {
