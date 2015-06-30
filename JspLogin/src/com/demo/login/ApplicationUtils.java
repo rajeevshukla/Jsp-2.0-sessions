@@ -5,19 +5,17 @@ import java.util.Map;
 
 public class ApplicationUtils {
 
-	 public static Map<String, String> USER_NAME_PASSWORD_MAP =new HashMap<String, String>();
+	 public static Map<String, UserDetails> USER_NAME_PASSWORD_MAP =new HashMap<String, UserDetails>();
 	 
 	 public static Map<Integer, ProductDetails> productIdProductDetailsMap=new  HashMap<Integer, ProductDetails>();
 	 
 	  static {
-		  USER_NAME_PASSWORD_MAP.put("user1", "test@1234");
-		  USER_NAME_PASSWORD_MAP.put("user2", "test@1234");
-		  USER_NAME_PASSWORD_MAP.put("user3", "test@1234");
-		  USER_NAME_PASSWORD_MAP.put("user4", "test@1234");
-		  USER_NAME_PASSWORD_MAP.put("user5", "test@1234");
-		  USER_NAME_PASSWORD_MAP.put("user6", "test@1234");
-		  USER_NAME_PASSWORD_MAP.put("user7", "test@1234");
-		  USER_NAME_PASSWORD_MAP.put("user8", "test@1234");
+		  USER_NAME_PASSWORD_MAP.put("user1", new UserDetails("user1", "test@1234", "ROLE_USER"));
+		  USER_NAME_PASSWORD_MAP.put("user2", new UserDetails("user1", "test@1234", "ROLE_USER"));
+		  USER_NAME_PASSWORD_MAP.put("user3", new UserDetails("user1", "test@1234", "ROLE_USER"));
+		  USER_NAME_PASSWORD_MAP.put("admin1", new UserDetails("admin1", "test@1234", "ROLE_ADMIN"));
+		  USER_NAME_PASSWORD_MAP.put("admin2", new UserDetails("admin2", "test@1234", "ROLE_ADMIN"));
+		  USER_NAME_PASSWORD_MAP.put("admin3", new UserDetails("admin3", "test@1234", "ROLE_ADMIN"));
 		  
 		  productIdProductDetailsMap.put(1, new ProductDetails(1,"T shirts" ,20, 549.70));
 		  productIdProductDetailsMap.put(2, new ProductDetails(2,"Shirt" ,20, 5409.70));

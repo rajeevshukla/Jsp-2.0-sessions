@@ -1,7 +1,13 @@
 package com.demo.login;
 
-public class ProductDetails {
+import java.io.Serializable;
 
+public class ProductDetails  implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1709969335777604116L;
 	private int productId;
 	private String productName;
 	private int quantity;

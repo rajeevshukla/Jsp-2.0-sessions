@@ -45,16 +45,32 @@ public class LoginServlet extends HttpServlet {
 
 
 		//check username & password in database. if correct add username in session. 
-		if(ApplicationUtils.USER_NAME_PASSWORD_MAP.containsKey(userName) && ApplicationUtils.USER_NAME_PASSWORD_MAP.containsValue(password)) {
-			HttpSession session=request.getSession();
-			session.setAttribute("userName", userName);
-			List<ProductDetails> productList=new ArrayList<ProductDetails>();
+		if(ApplicationUtils.USER_NAME_PASSWORD_MAP.containsKey(userName) && ApplicationUtils.USER_NAME_PASSWORD_MAP.get(userName).getPassword().equalsIgnoreCase(password) ) {
 
-			for (Integer productId : ApplicationUtils.productIdProductDetailsMap.keySet()) {
-				productList.add(ApplicationUtils.productIdProductDetailsMap.get(productId));
+
+			UserDetails userDetails=ApplicationUtils.USER_NAME_PASSWORD_MAP.get(userName);
+
+			HttpSession session=request.getSession(true);
+			session.setAttribute("userName", userName);
+             session.setAttribute("userDetails", userDetails);
+			if(userDetails.getRole().equalsIgnoreCase("ROLE_ADMIN")){
+
+ 
+				 response.sendRedirect("admin/welcomeAdmin.jsp");
+ 
+			}else {
+
+				List<ProductDetails> productList=new ArrayList<ProductDetails>();
+				for (Integer productId : ApplicationUtils.productIdProductDetailsMap.keySet()) {
+					productList.add(ApplicationUtils.productIdProductDetailsMap.get(productId));
+				}
+				session.setAttribute("productList", productList);
+				response.sendRedirect("welcome.jsp");
+
+
 			}
-			session.setAttribute("productList", productList);
-			response.sendRedirect("welcome.jsp");
+
+
 		}else {
 			HttpSession session=request.getSession();
 			session.setAttribute("errorMsg", "Username or password don't match with database.");
