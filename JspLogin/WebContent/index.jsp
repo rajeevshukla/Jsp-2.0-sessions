@@ -24,5 +24,9 @@ User name : <input name="userName" type="text"> <br>
 Password <input name="userPassword" type="password"><br>
  <input type="submit" value="Login">
  </form>
+ 
+ ${2+4}
+  //head first servlet jsp 396. 
+   El operators. 
 </body>
 </html>

@@ -3,6 +3,8 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <%
@@ -10,6 +12,7 @@
 		response.sendRedirect("index.jsp");
 	}
 %>
+
 
 
 <head>
@@ -36,34 +39,29 @@
 
 	<div id="header" style="width: 100%; height: 100px;">
 		<div align="left" style="float: left; width: 50%;">
-			Welcome
-			${userName}  <!-- El engine will search this attribute in all 4 scope one by one. 
+			Welcome ${userName}
+			<!-- El engine will search this attribute in all 4 scope one by one. 
 			               1:-pageScope
 			               
 			
 			         -->
-			
-			             
+
+
 			!!
 
-			<%
-			Map<Integer, Integer> cartInfo = (Map<Integer, Integer>) session
-					.getAttribute("cartInfo");
-		%>
 			<div align="right">
 
-				<%
-					if (null != cartInfo) {
-				%>
-				Cart(  <a href="viewCartDetails.htm"> <%=cartInfo.size()%></a>)
 
-				<%
-					} else {
-				%>
-				Cart(0)
-				<%
-					}
-				%>
+				<c:if test="${ not empty cartInfo}">
+				Cart(  <a href="viewCartDetails.htm"> ${cartInfo.size()}</a>)
+				 </c:if>
+
+				<!-- if else condition in jstl -->
+				<%-- 		  <c:choose>
+				    <c:when test=""></c:when>
+				    <c:otherwise></c:otherwise>
+				  </c:choose>
+		 --%>
 
 			</div>
 		</div>
@@ -88,24 +86,13 @@
 				</thead>
 
 				<tbody>
-
-					<%
-						List<ProductDetails> productDetails = (List<ProductDetails>) session
-								.getAttribute("productList");
-
-						for (ProductDetails product : productDetails) {
-					%>
-					<tr>
-						<td><%=product.getProductName()%></td>
-						<td><%=product.getPrice()%></td>
-						<td><input type="checkbox" name="selectedProducts"
-							value="<%=product.getProductId()%>"></td>
-
-					</tr>
-
-					<%
-						}
-					%>
+					<c:forEach var="product" items="${productList}">
+						<tr>
+							<td>${product.productName}</td>
+							<td>${product.price}</td>
+							<td><input type="checkbox" name="selectedProducts" value="${product.productId}"></td>
+						</tr>
+					</c:forEach>
 				</tbody>
 
 				<thead>
