@@ -1,0 +1,15 @@
+
+
+ 1:- create tld file under web-inf folder. 
+ 2:- make sure that jstl.jar is available in class as well as run time. 
+ 3:- copy doctype of c.tld  to newely created tld file.
+ 4:- create a class and extend SimpleTagSupport 
+ 
+ 
+ 
+ Body Content 
+ 
+       empty  -- TAG MUST NOT HAVE A BODY. 
+       scriptless -- TAG BODY CAN HAVE ANY THING EXCEPT SCRIPTING ELEMENT 
+       tagdependent --- TAG BODY WILL BE TREATED AS PLAIN TEXT. 
+       JSP -------------     TAG BODY WILL ALLOW EVERYTHING , it means everything will be evaluated. 
