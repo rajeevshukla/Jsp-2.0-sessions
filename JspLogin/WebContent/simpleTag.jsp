@@ -18,9 +18,9 @@
     
       
   
-   <customCoreRt:myForEach   start="${start }" end="${end}">
+   <customCoreRt:myForEach var="abc"   start="${start }" end="${end}">
    
-      <a href="http://www.google.co.in?q=${output}" title="search it on google">${output}</a>
+      <a href="http://www.google.co.in?q=${abc}" title="search it on google">${abc}</a>
    
    </customCoreRt:myForEach>
  

@@ -12,7 +12,7 @@ public class OutputTag extends SimpleTagSupport {
 	       
 		  
 		  getJspContext().getOut().println("your output tag has been exected. <br>");
-		  System.out.println("your output tag has been exected. ");
+		 //System.out.println("your output tag has been exected. ");
 		super.doTag();
 	}
 	
