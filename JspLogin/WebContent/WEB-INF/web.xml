@@ -10,6 +10,16 @@
    </session-config>
   
   
+  <jsp-config>
+  
+  <taglib>
+  <taglib-uri>hello</taglib-uri>
+   <taglib-location>/web-inf/</taglib-location>
+  </taglib>
+  
+  </jsp-config>
+  
+  
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
